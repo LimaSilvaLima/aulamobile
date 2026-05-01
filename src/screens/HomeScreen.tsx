@@ -5,12 +5,12 @@ import PrimaryButton from '../components/PrimaryButton';
 
 export default function HomeScreen() {
   const [message, setMessage] = useState('Clique no botão para mudar a mensagem!');
-
+  const [Active, setActive] = useState(false);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>React Native</Text>
-      <Text style={styles.subtitle}>Projeto Mobile com React Native TypeScript</Text>
-      <Text style={styles.message}>{message}</Text>
+    <View style={[styles.container, Active && { backgroundColor: '#1e293b' }, !Active && { backgroundColor: '#f1f5f9' }]}>
+      <Text style={[styles.title, !Active && { color: '#0f172a' }]}>React Native</Text>
+      <Text style={[styles.subtitle, !Active && { color: '#1e293b' }]}>Projeto Mobile com React Native TypeScript</Text>
+      <Text style={[styles.message, !Active && { color: '#0f172a' }]}>{message}</Text>
       <PrimaryButton 
         title="Ativar Projeto"
         onPress={() => setMessage('Projeto Ativado!')}
@@ -19,14 +19,21 @@ export default function HomeScreen() {
         title="Desativar Projeto"
         onPress={() => setMessage('Projeto Desativado!')}
       />
-      <View style={styles.card}>
-        <Text style={styles.cardText}>
+      <View style={[styles.card, !Active && { backgroundColor: '#ffffff', borderColor: '#0f172a' }]}>
+        <Text style={[styles.cardText, !Active && { color: '#0f172a' }]}>
           Este é um card de exemplo no React Native!
         </Text>
       </View>
+      <PrimaryButton 
+        title="Alternar Tema"
+        onPress={() => setActive(!Active)}
+      />
+      
+
       </View>
   );
 }
+
 
 const styles = StyleSheet.create({      
     container: {
