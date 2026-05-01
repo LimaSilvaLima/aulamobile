@@ -19,6 +19,11 @@ export default function HomeScreen() {
         title="Desativar Projeto"
         onPress={() => setMessage('Projeto Desativado!')}
       />
+      <View style={styles.card}>
+        <Text style={styles.cardText}>
+          Este é um card de exemplo no React Native!
+        </Text>
+      </View>
       </View>
   );
 }
@@ -45,7 +50,20 @@ const styles = StyleSheet.create({
     message: {
       marginTop: 20,
       fontSize: 18,
-      color: '#f8fafc',
-    
+      color: '#f8fafc'
+    },
+    card : {
+      marginTop: 40,
+      backgroundColor: '#020617',
+      width: '85%',
+      padding: 25,
+      borderRadius: 16,
+      borderWidth: 1,
+      borderColor: '#38bdf8',
+    },
+    cardText :{
+      color: '#e5e7eb',
+      fontWeight: '500',
+      textAlign: 'center',
     }
   });
